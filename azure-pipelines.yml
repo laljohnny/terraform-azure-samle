@@ -20,7 +20,7 @@ steps:
     backendAzureRmResourceGroupName: 'c2c-info-tech'
     backendAzureRmStorageAccountName: 'cloudskillacademy'
     backendAzureRmContainerName: 'terraformstate'
-    backendAzureRmKey: 'tf/terraform.tfstate'
+    backendAzureRmKey: 'terraform.tfstate'
 
 - task: TerraformTask@5
   inputs:
@@ -41,3 +41,8 @@ steps:
     commandOptions: '-auto-approve'
     environmentServiceNameAzureRM: 'testconnection'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
