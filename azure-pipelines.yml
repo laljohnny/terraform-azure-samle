@@ -1,7 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
 - main
@@ -19,7 +15,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'tf-connection'
+    backendServiceArm: 'testconnection'
     backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
     backendAzureRmResourceGroupName: 'c2c-info-tech'
     backendAzureRmStorageAccountName: 'cloudskillacademy'
@@ -36,13 +32,13 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     commandOptions: '-out=tfplan'
-    environmentServiceNameAzureRM: 'tf-connection'
+    environmentServiceNameAzureRM: 'testconnection'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'apply'
     commandOptions: 'and(succeeded(), eq(variables[''terraformPlan.changesPresent''], ''true''))'
-    environmentServiceNameAzureRM: 'tf-connection'
+    environmentServiceNameAzureRM: 'testconnection'
 
 
