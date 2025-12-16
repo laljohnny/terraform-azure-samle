@@ -10,10 +10,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'tf-connection'
+    backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
+    backendAzureRmResourceGroupName: 'c2c-info-tech'
+    backendAzureRmStorageAccountName: 'cloudskillacademy'
+    backendAzureRmContainerName: 'terraformstate'
+    backendAzureRmKey: 'tf/terraform.tfstate'
