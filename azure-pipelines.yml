@@ -38,7 +38,6 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    commandOptions: 'and(succeeded(), eq(variables[''terraformPlan.changesPresent''], ''true''))'
+    commandOptions: '-auto-approve'
     environmentServiceNameAzureRM: 'testconnection'
-
 
