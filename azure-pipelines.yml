@@ -25,3 +25,24 @@ steps:
     backendAzureRmStorageAccountName: 'cloudskillacademy'
     backendAzureRmContainerName: 'terraformstate'
     backendAzureRmKey: 'tf/terraform.tfstate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    commandOptions: '-out=tfplan'
+    environmentServiceNameAzureRM: 'tf-connection'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    commandOptions: 'and(succeeded(), eq(variables[''terraformPlan.changesPresent''], ''true''))'
+    environmentServiceNameAzureRM: 'tf-connection'
+
+
