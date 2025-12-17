@@ -21,6 +21,7 @@ steps:
     backendAzureRmStorageAccountName: 'cloudskillacademy'
     backendAzureRmContainerName: 'terraformstate'
     backendAzureRmKey: 'terraform.tfstate'
+    backendAzureRmUseCliFlagsForAuthentication: true
 
 - task: TerraformTask@5
   inputs:
