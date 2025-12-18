@@ -22,6 +22,7 @@ steps:
     backendAzureRmContainerName: 'terraformstate'
     backendAzureRmKey: 'terraform.tfstate'
     backendAzureRmUseCliFlagsForAuthentication: true
+    access_key: 'C99Zb4gewZQq9Y1wp33tdjxkY6znUKdfRmn6siQro/wZg8OTkzpKsQfe+KEXq5Vyg3clswFXkLkc+AStvvVZfA=='
 
 - task: TerraformTask@5
   inputs:
