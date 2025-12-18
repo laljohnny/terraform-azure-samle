@@ -24,10 +24,10 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    environmentServiceNameAzureRM: 'testconnection'
+    environmentServiceNameAzureRM: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
-    command: 'plan'
-    environmentServiceNameAzureRM: 'testconnection'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
