@@ -16,11 +16,11 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'tf-connection'
+        backendServiceArm: 'testconnection'
         backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
         backendAzureRmResourceGroupName: 'c2c-info-tech'
         backendAzureRmStorageAccountName: 'cloudskillacademy'
-        backendAzureRmContainerName: 'terraformstate'
+        backendAzureRmContainerName: 'test'
         backendAzureRmKey: 'terraform.tfstate'
         backendAzureRmUseCliFlagsForAuthentication: true
     - task: TerraformTask@5
