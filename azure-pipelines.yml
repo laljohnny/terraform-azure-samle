@@ -15,18 +15,19 @@ steps:
   displayName: Terraform Init
 
 
-- script: terraform plan
-  displayName: Terraform Plan
-  env:
-    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-    ARM_TENANT_ID: $(ARM_TENANT_ID)
-    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
 
-- script: terraform apply -auto-approve
-  displayName: Terraform Apply
-  env:
-    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-    ARM_TENANT_ID: $(ARM_TENANT_ID)
-    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'testconnection'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'testconnection'
