@@ -17,7 +17,8 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
+        backendServiceArm: 'tf-connection'
+        backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
         backendAzureRmResourceGroupName: 'c2c-info-tech'
         backendAzureRmStorageAccountName: 'cloudskillacademy'
         backendAzureRmContainerName: 'test'
