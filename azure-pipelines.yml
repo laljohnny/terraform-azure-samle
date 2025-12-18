@@ -15,14 +15,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'testconnection'
-    backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
-    backendAzureRmResourceGroupName: 'c2c-info-tech'
-    backendAzureRmStorageAccountName: 'cloudskillacademy'
-    backendAzureRmContainerName: 'terraformstate'
-    backendAzureRmKey: 'terraform.tfstate'
-    backendAzureRmUseCliFlagsForAuthentication: true
-    access_key: 'C99Zb4gewZQq9Y1wp33tdjxkY6znUKdfRmn6siQro/wZg8OTkzpKsQfe+KEXq5Vyg3clswFXkLkc+AStvvVZfA=='
+
 
 - task: TerraformTask@5
   inputs:
