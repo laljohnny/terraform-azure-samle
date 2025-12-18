@@ -17,9 +17,7 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendAzureRmUseCliFlagsForAuthentication: true
-        backendAzureRmUseIdTokenGeneration: true
-        backendServiceArm: 'testconnection'
+        backendServiceArm: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
         backendAzureRmResourceGroupName: 'c2c-info-tech'
         backendAzureRmStorageAccountName: 'cloudskillacademy'
         backendAzureRmContainerName: 'test'
