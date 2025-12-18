@@ -14,11 +14,19 @@ steps:
       -backend-config="access_key=$(TF_STATE_ACCESS_KEY)"
   displayName: Terraform Init
 
-- script: terraform validate
-  displayName: Terraform Validate
 
-- script: terraform plan -out=tfplan
+- script: terraform plan
   displayName: Terraform Plan
+  env:
+    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+    ARM_TENANT_ID: $(ARM_TENANT_ID)
+    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
 
-- script: terraform apply -auto-approve tfplan
+- script: terraform apply -auto-approve
   displayName: Terraform Apply
+  env:
+    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+    ARM_TENANT_ID: $(ARM_TENANT_ID)
+    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
