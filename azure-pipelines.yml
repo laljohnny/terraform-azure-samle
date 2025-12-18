@@ -12,14 +12,16 @@ stages:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
-
-    - task: TerraformTask@5
+    - task: Terraform@2
       inputs:
-        provider: 'azurerm'
-        command: 'init'
-        backendServiceArm: 'tf-connection'
-        backendAzureRmOverrideSubscriptionID: 'c80009eb-ee93-4cdd-9d13-306768b946b1'
-        backendAzureRmResourceGroupName: 'c2c-info-tech'
-        backendAzureRmStorageAccountName: 'cloudskillacademy'
-        backendAzureRmContainerName: 'test'
-        backendAzureRmKey: 'terraform.tfstate'
+        TemplatePath: '/'
+        Arguments: 
+        InstallTerraform: true
+        UseAzureSub: true
+        ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+        ConnectedServiceNameARM: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
+        ManageState: true
+        SpecifyStorageAccount: true
+        StorageAccountResourceGroup: 'CloudSkillAcademy_Rg_01'
+        StorageAccountRM: 'cloudskillacademy'
+        StorageContainerName: 'test'
