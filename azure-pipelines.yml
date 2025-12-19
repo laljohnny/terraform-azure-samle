@@ -19,15 +19,17 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'validate'
-
+  displayName: Terraform validate
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
+  displayName: Terraform validate  
 
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'CloudSkillAcademy(c80009eb-ee93-4cdd-9d13-306768b946b1)'
+  displayName: Terraform validate
